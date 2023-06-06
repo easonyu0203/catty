@@ -2,7 +2,8 @@
 	import { page } from '$app/stores';
 	import { AppShell } from '@skeletonlabs/skeleton';
 
-	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');
+	$: classesActive = (href: string) =>
+		href === $page.url.pathname ? '!variant-filled-primary' : '';
 
 	const docs_sections = [
 		{
@@ -43,8 +44,8 @@
 				<ul>
 					{#each doc_section.pages as page}
 						<li>
-							<a href={`/main/docs/${page.path}`}>
-								<div class="flex-auto">{page.title}</div>
+							<a class={classesActive(`/main/docs/${page.path}`)} href={`/main/docs/${page.path}`}>
+								{page.title}
 							</a>
 						</li>
 					{/each}

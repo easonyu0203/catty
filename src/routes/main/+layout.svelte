@@ -1,12 +1,5 @@
 <script lang="ts">
-	import {
-		AppShell,
-		AppBar,
-		LightSwitch,
-		AppRail,
-		AppRailAnchor,
-		AppRailTile
-	} from '@skeletonlabs/skeleton';
+	import { AppShell, AppRail, AppRailAnchor } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
 
 	let currentTile: number = 0;
@@ -19,7 +12,13 @@
 			background="bg-surface-100-800-token"
 			width="w-24"
 		>
-			<AppRailTile bind:group={currentTile} name="tile-1" value={0}>
+			<AppRailAnchor
+				href="/info-cards"
+				selected={$page.url.pathname === '/info-cards' || $page.url.pathname.includes('/docs')}
+				bind:group={currentTile}
+				name="tile-1"
+				value={0}
+			>
 				<svelte:fragment slot="lead">
 					<div class="flex items-center justify-center">
 						<svg
@@ -45,8 +44,8 @@
 					</div>
 				</svelte:fragment>
 				<span>Docs</span>
-			</AppRailTile>
-			<AppRailTile bind:group={currentTile} name="tile-2" value={1}>
+			</AppRailAnchor>
+			<AppRailAnchor href="/" bind:group={currentTile} name="tile-2" value={1}>
 				<svelte:fragment slot="lead">
 					<div class="flex items-center justify-center">
 						<svg
@@ -69,8 +68,8 @@
 					</div>
 				</svelte:fragment>
 				<span>AI Helper</span>
-			</AppRailTile>
-			<AppRailTile bind:group={currentTile} name="tile-3" value={2}>
+			</AppRailAnchor>
+			<AppRailAnchor href="/" bind:group={currentTile} name="tile-3" value={2}>
 				<svelte:fragment slot="lead">
 					<div class="flex items-center justify-center">
 						<svg
@@ -89,7 +88,7 @@
 					</div>
 				</svelte:fragment>
 				<span>Chat</span>
-			</AppRailTile>
+			</AppRailAnchor>
 		</AppRail>
 	</svelte:fragment>
 	<slot />
