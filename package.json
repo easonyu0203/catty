@@ -41,6 +41,8 @@
 		"feather-icons": "^4.29.0",
 		"firebase": "^9.22.1",
 		"gsap": "^3.11.5",
-		"iconify-icon": "^1.0.7"
+		"iconify-icon": "^1.0.7",
+		"openai": "^3.2.1",
+		"sveltefire": "^0.2.3"
 	}
 }

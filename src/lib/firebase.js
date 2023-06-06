@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { getAnalytics } from 'firebase/analytics';
 
 // Your web app's Firebase configuration
@@ -17,6 +17,18 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
+
+export const firestore = getFirestore(app);
 export const auth = getAuth(app);
-const analytics = getAnalytics(app);
+export const handleSignOut = () => auth.signOut();
+export const handleSignInWithGoogle = async () => {
+	try {
+		const result = await signInWithPopup(auth, provider);
+		// Handle successful sign-in here
+		console.log('Signed in with Google:', result.user);
+	} catch (error) {
+		// Handle sign-in error here
+		console.error('Error signing in with Google:', error);
+	}
+};
