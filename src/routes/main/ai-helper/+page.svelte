@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Avatar, ListBox, ListBoxItem, ProgressRadial } from '@skeletonlabs/skeleton';
 	import { onMount } from 'svelte';
+	import { serverTimestamp, collection, addDoc } from 'firebase/firestore';
 	import { db, auth } from '$lib/firebase';
 	import { FirebaseApp, User, userStore } from 'sveltefire';
 
@@ -59,6 +60,13 @@
 			...openaiMessages,
 			{ role: 'user', content: currentMessage, timestamp: `Today @ ${getCurrentTimestamp()}` }
 		];
+
+		// store to firestore
+		addDoc(collection(db, 'questions'), {
+			uid: $user!.uid,
+			content: currentMessage,
+			timestamp: serverTimestamp()
+		});
 
 		// Clear prompt
 		currentMessage = '';
