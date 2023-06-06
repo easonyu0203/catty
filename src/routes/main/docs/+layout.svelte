@@ -21,7 +21,7 @@
 				{ title: '養貓用品準備', path: 'env-cat-item-prepare' },
 				{ title: '養貓環境準備', path: 'env-prepare' },
 				{ title: '飲食建議', path: 'food-suggestion' },
-				{ title: '用捕誘因與方法', path: 'food-catch-ways' }
+				{ title: '誘捕用品與方法', path: 'food-catch-ways' }
 			]
 		},
 		{
