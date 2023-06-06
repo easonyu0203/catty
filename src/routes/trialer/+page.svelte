@@ -2,6 +2,7 @@
 	import { Stepper, Step } from '@skeletonlabs/skeleton';
 	import { gsap } from '$lib/gsap';
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	const steps = [
 		{
@@ -67,21 +68,30 @@
 	});
 
 	const finish_steps = () => {
-		gsap.to('#steps', {
-			duration: 1,
-			opacity: 0,
-			y: -200
-		});
+		gsap
+			.timeline()
+			.to('#steps', {
+				duration: 1,
+				opacity: 0,
+				y: -200
+			})
+			.to('#steps', {
+				duration: 0.1,
+				height: 0,
+				onComplete: () => {
+					goto('/info-cards');
+				}
+			});
 	};
 </script>
 
-<div class=" container h-full flex flex-col items-center justify-center">
+<div class=" container h-full flex flex-col items-center justify-center m-auto">
 	<div class=" flex flex-col space-y-4">
 		<div class=" overflow-hidden">
-			<h1 id="intro0" class="h1">我想要幫助貓咪！ 我想養貓貓</h1>
+			<h1 id="intro0" class="h1">想要幫助貓咪~想養貓貓~</h1>
 		</div>
 		<div class=" overflow-hidden">
-			<h1 id="intro1" class="h1">可是...我什麼都不懂</h1>
+			<h1 id="intro1" class="h1">可是...什麼都不懂</h1>
 		</div>
 		<div class=" overflow-hidden">
 			<h1 id="intro2" class="h1">別擔心！讓我們來教你!</h1>

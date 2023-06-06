@@ -45,7 +45,7 @@
 
 	<div id="start_btn" class=" pt-36">
 		<button class="btn variant-filled-primary">
-			<h2 class="h2"><a href="/info">LET'S START</a></h2></button
+			<h2 class="h2"><a href="/trialer">LET'S START</a></h2></button
 		>
 	</div>
 </div>

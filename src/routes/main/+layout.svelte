@@ -15,7 +15,7 @@
 <AppShell>
 	<svelte:fragment slot="sidebarLeft">
 		<AppRail
-			border="border-r-4 border-primary-300"
+			border="border-r-2 border-primary-300"
 			background="bg-surface-100-800-token"
 			width="w-24"
 		>
