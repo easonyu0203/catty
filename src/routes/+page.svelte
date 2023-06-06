@@ -1,30 +1,31 @@
 <script lang="ts">
-	import { gsap, ScrollTrigger } from '$lib/gsap';
+	import { gsap } from '$lib/gsap';
 	import { onMount } from 'svelte';
 
 	const intro_speechs = [
-		{ id: 'line0', content: 'let Save Stray Cat' },
+		{ id: 'line0', content: "let's Save Stray Cat" },
 		{ id: 'line1', content: 'With a little love' },
 		{ id: 'line2', content: 'Help them, Help us' }
 	];
 
 	onMount(() => {
-		// const tl = gsap.timeline();
-		// intro_speechs.forEach((speech, index) => {
-		// 	tl.from(`#${speech.id}`, {
-		// 		duration: 1,
-		// 		y: '200%'
-		// 	});
-		// });
-		// tl.from('#gif', {
-		// 	duration: 1,
-		// 	opacity: 0
-		// });
-		// tl.delay(1);
-		// tl.from('#start_btn', {
-		// 	duration: 1,
-		// 	x: 200
-		// });
+		const tl = gsap.timeline();
+		intro_speechs.forEach((speech, index) => {
+			tl.from(`#${speech.id}`, {
+				duration: 1,
+				y: '200%'
+			});
+		});
+		tl.from('#start_btn', {
+			duration: 1,
+			y: 200,
+			opacity: 0
+		});
+		tl.delay(0.3);
+		tl.from('#gif', {
+			duration: 1,
+			opacity: 0
+		});
 	});
 </script>
 
@@ -43,6 +44,8 @@
 	</div>
 
 	<div id="start_btn" class=" pt-36">
-		<button class="btn variant-filled"> <h2 class="h2">LET'S START</h2></button>
+		<button class="btn variant-filled-primary">
+			<h2 class="h2"><a href="/info">LET'S START</a></h2></button
+		>
 	</div>
 </div>

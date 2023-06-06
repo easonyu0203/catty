@@ -34,6 +34,12 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"gsap": "^3.11.5"
+		"@fortawesome/fontawesome-svg-core": "^6.4.0",
+		"@fortawesome/free-solid-svg-icons": "^6.4.0",
+		"@fortawesome/react-fontawesome": "^0.2.0",
+		"feather-icons": "^4.29.0",
+		"firebase": "^9.22.1",
+		"gsap": "^3.11.5",
+		"iconify-icon": "^1.0.7"
 	}
 }
