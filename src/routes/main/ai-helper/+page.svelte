@@ -95,6 +95,7 @@
 	}
 
 	function scrollChatBottom(behavior?: ScrollBehavior): void {
+		if (elemChat === undefined) return;
 		elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
 	}
 
@@ -118,7 +119,7 @@
 <FirebaseApp {auth} {firestore}>
 	<User let:user>
 		<div class="container flex flex-col justify-center items-center space-y-10 h-full m-auto">
-			<h1 class="h1">問問AI關於流浪貓的問題吧!</h1>
+			<h1 class="h1">問問我們的小幫手關於流浪貓的問題吧!</h1>
 			<section class="card w-[72rem]">
 				<div class="chat w-full h-full">
 					<!-- Chat -->
@@ -199,6 +200,13 @@
 					</div>
 				</div>
 			</section>
+		</div>
+		<div
+			slot="signedOut"
+			class="container h-full m-auto flex flex-col space-y-10 items-center justify-center"
+		>
+			<h1 class="h1">要登入才能使用我們小幫手喔</h1>
+			<h4 class="h4">請點選右上角登入按鈕</h4>
 		</div>
 	</User>
 </FirebaseApp>
