@@ -26,7 +26,13 @@
 					<span>知識庫</span>
 				</div>
 			</AppRailAnchor>
-			<AppRailAnchor href="/" bind:group={currentTile} name="tile-2" value={1}>
+			<AppRailAnchor
+				href="/main/ai-helper"
+				selected={$page.url.pathname === '/main/ai-helper'}
+				bind:group={currentTile}
+				name="tile-2"
+				value={1}
+			>
 				<svelte:fragment slot="lead">
 					<i class="fa-solid fa-users fa-2xl" />
 				</svelte:fragment>
