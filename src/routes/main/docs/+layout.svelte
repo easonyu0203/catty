@@ -8,25 +8,28 @@
 		{
 			section: '行為照顧',
 			pages: [
-				{ title: '基本照顧知識', path: 'care-basic-knowledge' },
-				{ title: '照顧適應', path: 'care-adaptation' },
-				{ title: '收養照顧', path: 'care-adopt' }
+				{ title: '流浪貓基本知識與照顧', path: 'care-basic-knowledge' },
+				{ title: '收養管道與選擇', path: 'care-adaptation' },
+				{ title: '剛到新家適應問題', path: 'care-new-home' },
+				{ title: '野貓親人訓練', path: 'care-human-interact' }
 			]
 		},
 		{
 			section: '環境飲食',
 			pages: [
-				{ title: '環境捕捉', path: 'env-capture' },
-				{ title: '飲食環境', path: 'env-food' },
-				{ title: '環境準備', path: 'env-environment-preparation' }
+				{ title: '養貓用品準備', path: 'env-cat-item-prepare' },
+				{ title: '養貓環境準備', path: 'env-prepare' },
+				{ title: '飲食建議', path: 'food-suggestion' },
+				{ title: '用捕誘因與方法', path: 'food-catch-ways' }
 			]
 		},
 		{
 			section: '醫療照顧',
 			pages: [
-				{ title: '貓疫苗', path: 'cat-vaccine' },
-				{ title: '貓愛滋病', path: 'cat-aids' },
-				{ title: '健康檢查', path: 'health-examination' }
+				{ title: '流浪貓收養前健康檢查', path: 'cat-pre-test' },
+				{ title: '貓咪例行疫苗施打', path: 'cat-vaccine' },
+				{ title: '例行驅蟲與常見寄生蟲', path: 'cat-bug' },
+				{ title: '貓愛滋與貓白血病', path: 'cat-aids' }
 			]
 		}
 	];
