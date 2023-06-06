@@ -15,11 +15,11 @@
 		AppRailTile
 	} from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
-	import { firestore, auth, handleSignInWithGoogle, handleSignOut } from '$lib/firebase';
+	import { db, auth, handleSignInWithGoogle, handleSignOut } from '$lib/firebase';
 	import { FirebaseApp, User } from 'sveltefire';
 </script>
 
-<FirebaseApp {auth} {firestore}>
+<FirebaseApp {auth} firestore={db}>
 	<AppShell>
 		<svelte:fragment slot="header">
 			<AppBar border="border-b-2 border-primary-300">

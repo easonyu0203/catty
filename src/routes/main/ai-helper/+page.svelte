@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Avatar, ListBox, ListBoxItem, ProgressRadial } from '@skeletonlabs/skeleton';
 	import { onMount } from 'svelte';
-	import { firestore, auth } from '$lib/firebase';
+	import { db, auth } from '$lib/firebase';
 	import { FirebaseApp, User, userStore } from 'sveltefire';
 
 	const user = userStore(auth);
@@ -116,7 +116,7 @@
 	});
 </script>
 
-<FirebaseApp {auth} {firestore}>
+<FirebaseApp {auth} firestore={db}>
 	<User let:user>
 		<div class="container flex flex-col justify-center items-center space-y-10 h-full m-auto">
 			<h1 class="h1">問問我們的小幫手關於流浪貓的問題吧!</h1>
