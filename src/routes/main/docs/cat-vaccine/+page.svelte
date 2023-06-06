@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">貓咪例行疫苗施打</h1>
-			<p class=" text-gray-600 text-lg">貓咪疫苗：抗體保護、加速康復！</p>
+			<p class=" text-gray-500 text-lg">貓咪疫苗：抗體保護、加速康復！</p>
 			<span class="badge variant-soft">疫苗</span>
 			<span class="badge variant-soft">製造抗體</span>
 			<span class="badge variant-soft">免疫力保護</span>

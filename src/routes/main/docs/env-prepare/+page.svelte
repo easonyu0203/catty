@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">養貓環境準備</h1>
-			<p class=" text-gray-600 text-lg">收養貓咪前，該怎麼幫牠們準備一個溫暖的家呢？</p>
+			<p class=" text-gray-500 text-lg">收養貓咪前，該怎麼幫牠們準備一個溫暖的家呢？</p>
 			<span class="badge variant-soft">躲藏處</span>
 			<span class="badge variant-soft">門窗鎖</span>
 
@@ -20,6 +20,7 @@
 					這種方式可以緩解牠們的焦慮，如果沒有適當的替貓咪布置一個躲藏的地方，久了之後容易造成貓咪焦慮以及各種心理疾病！
 					但躲藏處並不是需要花大錢去購買，家裡的紙箱或是沙發底下對於貓咪來說都是很好的躲藏地點，了解哪裡是貓咪喜歡的地方，
 					並且打掃乾淨也是身為主人的職責喔！
+				</p>
 			</div>
 
 			<div class="w-[36rem] space-y-3">

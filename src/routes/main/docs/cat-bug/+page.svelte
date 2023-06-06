@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">例行驅蟲與常見寄生蟲</h1>
-			<p class=" text-gray-600 text-lg">寄生蟲除了影響毛孩健康，也可能感染人類造成危害喔！</p>
+			<p class=" text-gray-500 text-lg">寄生蟲除了影響毛孩健康，也可能感染人類造成危害喔！</p>
 			<span class="badge variant-soft">驅蟲</span>
 			<span class="badge variant-soft">寄生蟲</span>
 			<span class="badge variant-soft">預防措施</span>

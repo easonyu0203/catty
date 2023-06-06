@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">剛到新家適應問題</h1>
-			<p class=" text-gray-600 text-lg">要怎麼讓貓貓住得開心呢？</p>
+			<p class=" text-gray-500 text-lg">要怎麼讓貓貓住得開心呢？</p>
 			<span class="badge variant-soft">新家</span>
 			<span class="badge variant-soft">適應</span>
 			<span class="badge variant-soft">熟悉</span>

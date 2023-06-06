@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">貓愛滋與貓白血病</h1>
-			<p class=" text-gray-600 text-lg">愛滋病和白血病是兩種常見的貓咪傳染病喔！</p>
+			<p class=" text-gray-500 text-lg">愛滋病和白血病是兩種常見的貓咪傳染病喔！</p>
 			<span class="badge variant-soft">貓愛滋</span>
 			<span class="badge variant-soft">貓白血病</span>
 			<span class="badge variant-soft">貓免疫缺陷疾病</span>

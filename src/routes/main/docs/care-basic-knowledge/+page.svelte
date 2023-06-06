@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">流浪貓基本知識與照顧</h1>
-			<p class=" text-gray-600 text-lg">讓我們一起來了解流浪貓的一些基本資訊吧！</p>
+			<p class=" text-gray-500 text-lg">讓我們一起來了解流浪貓的一些基本資訊吧！</p>
 			<span class="badge variant-soft">流浪貓</span>
 			<span class="badge variant-soft">照顧</span>
 			<span class="badge variant-soft">行動</span>

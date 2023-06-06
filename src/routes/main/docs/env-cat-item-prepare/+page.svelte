@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">養貓用品準備</h1>
-			<p class=" text-gray-600 text-lg">收養貓咪之前該替牠們準備甚麼呢？</p>
+			<p class=" text-gray-500 text-lg">收養貓咪之前該替牠們準備甚麼呢？</p>
 			<span class="badge variant-soft">貓砂盆</span>
 			<span class="badge variant-soft">貓抓板</span>
 

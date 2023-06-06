@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">收養前健康檢查</h1>
-			<p class=" text-gray-600 text-lg">確定好貓主人的身體狀況，才能確定照顧貓主人的方式！</p>
+			<p class=" text-gray-500 text-lg">確定好貓主人的身體狀況，才能確定照顧貓主人的方式！</p>
 			<span class="badge variant-soft">健康檢查</span>
 			<span class="badge variant-soft">疾病篩檢</span>
 			<span class="badge variant-soft">健康評估</span>

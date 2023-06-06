@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">收養管道與選擇</h1>
-			<p class=" text-gray-600 text-lg">想要領養貓咪的話該怎麼辦呢？</p>
+			<p class=" text-gray-500 text-lg">想要領養貓咪的話該怎麼辦呢？</p>
 			<span class="badge variant-soft">領養</span>
 			<span class="badge variant-soft">咖啡廳</span>
 			<span class="badge variant-soft">論壇</span>

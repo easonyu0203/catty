@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">飲食建議</h1>
-			<p class=" text-gray-600 text-lg">收養貓咪前，先了解該讓牠們吃甚麼好料的呢？</p>
+			<p class=" text-gray-500 text-lg">收養貓咪前，先了解該讓牠們吃甚麼好料的呢？</p>
 			<span class="badge variant-soft">貓咪飲食</span>
 			<span class="badge variant-soft">飼料</span>
 
@@ -18,6 +18,7 @@
 				<p>
 					貓咪的身體能夠消化的食物種類非常有限。他們主要能夠消化的是動物性蛋白質中的胺基酸，而植物性蛋白只需要極少量或甚至不需要，植物性的部分能幫助貓咪的是纖維，
 					主要是幫助腸胃道消化跟排毛的功能。因此，如果餵食貓咪過多的穀類和蔬菜類食物，或是取代他們必需的動物性蛋白質食物，就有可能引發一些嚴重的疾病。
+				</p>
 			</div>
 
 			<div class="w-[36rem] space-y-3">

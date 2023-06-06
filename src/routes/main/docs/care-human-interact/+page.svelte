@@ -2,7 +2,7 @@
 	<div class=" p-8 space-y-8 h-24 mb-24">
 		<header class=" space-y-4">
 			<h1 class="h1">野貓親人訓練</h1>
-			<p class=" text-gray-600 text-lg">該怎麼訓練剛領養的野貓呢？</p>
+			<p class=" text-gray-500 text-lg">該怎麼訓練剛領養的野貓呢？</p>
 			<span class="badge variant-soft">野貓</span>
 			<span class="badge variant-soft">領養</span>
 			<span class="badge variant-soft">安全感</span>
@@ -13,15 +13,14 @@
 		<div class=" w-[36rem] object-cover m-auto">
 			<img src="/document_images/care-human-interact.jpg" alt="care-human-interact" />
 		</div>
-		
-		
+
 		<div class=" space-y-10">
 			<div class="w-[36rem] space-y-3">
 				<p>
 					野貓親人訓練是一種幫助野生貓咪變得親人和親近人類的過程。這邊會介紹一個有效的親訓三步驟，讓新貓更親人。
 				</p>
 			</div>
-			
+
 			<div class="w-[36rem] space-y-3">
 				<h3 class="h3">第一步</h3>
 				<p>
