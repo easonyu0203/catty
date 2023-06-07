@@ -56,6 +56,7 @@
 				<Collection ref={'posts'} let:data={posts}>
 					{#each posts as post}
 						<Post
+							id={post.id}
 							authUid={post.authorUid}
 							title={post.title}
 							subtitle={post.subtitle}

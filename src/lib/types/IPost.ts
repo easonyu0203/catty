@@ -14,3 +14,9 @@ export interface IPostFormData {
 	subtitle: string;
 	content: string;
 }
+
+export interface IThumb {
+	isUp: boolean;
+	uid: string;
+	postId: string;
+}

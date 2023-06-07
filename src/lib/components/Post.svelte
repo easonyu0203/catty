@@ -1,16 +1,93 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
-	import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore';
+	import {
+		doc,
+		getDoc,
+		collection,
+		query,
+		where,
+		getDocs,
+		deleteDoc,
+		addDoc
+	} from 'firebase/firestore';
 	import { auth, db } from '$lib/firebase';
 	import { onMount } from 'svelte';
 	import Post from '$lib/components/Post.svelte';
 	import type { IProfile } from '$lib/types/Profile';
+	import { docStore, collectionStore } from 'sveltefire';
+	import type { IThumb } from '$lib/types/IPost';
 
+	export let id: string = '';
 	export let title: string = '[title]';
 	export let subtitle: string = '';
 	export let content: string = '[content]';
 	export let createDate: string = new Date().toLocaleDateString();
 	export let authUid: string = '';
+
+	let thumb_up_count = 0;
+	let thumb_down_count = 0;
+
+	const user_thumbs = collectionStore<IThumb>(
+		db,
+		query(collection(db, 'thumbs'), where('uid', '==', authUid), where('postId', '==', id))
+	);
+	const thumb_ups = collectionStore<IThumb>(
+		db,
+		query(collection(db, 'thumbs'), where('postId', '==', id), where('isUp', '==', true))
+	);
+	const thumb_downs = collectionStore<IThumb>(
+		db,
+		query(collection(db, 'thumbs'), where('postId', '==', id), where('isUp', '==', false))
+	);
+
+	$: thumb_up_count = $thumb_ups?.length;
+	$: thumb_down_count = $thumb_downs?.length;
+	$: is_user_up_thumbs = $user_thumbs?.filter((thumb) => thumb.isUp).length > 0;
+	$: is_user_down_thumbs = $user_thumbs?.filter((thumb) => !thumb.isUp).length > 0;
+
+	const toggleUp = async () => {
+		if (is_user_up_thumbs) {
+			// remove thumb
+			const thumb = $user_thumbs?.filter((thumb) => thumb.isUp)[0];
+			await deleteDoc(doc(db, 'thumbs', thumb.id));
+		} else {
+			// add thumb
+			const thumb: IThumb = {
+				uid: authUid,
+				postId: id,
+				isUp: true
+			};
+			await addDoc(collection(db, 'thumbs'), thumb);
+		}
+
+		if (is_user_down_thumbs) {
+			// remove thumb
+			const thumb = $user_thumbs?.filter((thumb) => !thumb.isUp)[0];
+			await deleteDoc(doc(db, 'thumbs', thumb.id));
+		}
+	};
+
+	const toggleDown = async () => {
+		if (is_user_down_thumbs) {
+			// remove thumb
+			const thumb = $user_thumbs?.filter((thumb) => !thumb.isUp)[0];
+			await deleteDoc(doc(db, 'thumbs', thumb.id));
+		} else {
+			// add thumb
+			const thumb: IThumb = {
+				uid: authUid,
+				postId: id,
+				isUp: false
+			};
+			await addDoc(collection(db, 'thumbs'), thumb);
+		}
+
+		if (is_user_up_thumbs) {
+			// remove thumb
+			const thumb = $user_thumbs?.filter((thumb) => thumb.isUp)[0];
+			await deleteDoc(doc(db, 'thumbs', thumb.id));
+		}
+	};
 
 	const getPostAsync = async () => {
 		const q = query(collection(db, 'profiles'), where('uid', '==', authUid));
@@ -69,17 +146,27 @@
 			</div>
 
 			<div class="p-4 space-x-4 flex">
-				<div class=" text-center flex items-center rounded-lg px-2">
-					<button class="btn-icon relative bottom-[1px] hover:variant-filled-success">
+				<div class={`text-center flex items-center rounded-lg space-x-2`}>
+					<button
+						on:click={() => toggleUp()}
+						class={`btn-icon relative bottom-[1px] ${
+							is_user_up_thumbs ? 'variant-filled-success' : 'hover:variant-filled-success'
+						} `}
+					>
 						<i class="fa-regular fa-thumbs-up fa-xl" />
 					</button>
-					<small>2,000</small>
+					<small>{thumb_up_count.toLocaleString()}</small>
 				</div>
-				<div class=" text-center flex items-center rounded-lg px-2">
-					<button class="btn-icon relative top-[1px] hover:variant-filled-warning">
+				<div class={` text-center flex items-center rounded-lg px-2  space-x-2`}>
+					<button
+						on:click={() => toggleDown()}
+						class={`btn-icon relative top-[1px] ${
+							is_user_down_thumbs ? 'variant-filled-warning' : 'hover:variant-filled-warning'
+						}`}
+					>
 						<i class=" fa-regular fa-thumbs-down fa-xl" />
 					</button>
-					<small>2,000</small>
+					<small>{thumb_down_count.toLocaleString()}</small>
 				</div>
 			</div>
 		</footer>

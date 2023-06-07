@@ -196,7 +196,7 @@
 									name="prompt"
 									id="prompt"
 									placeholder="Write a message..."
-									rows="2"
+									rows="1"
 									on:keydown={(e) => onPromptKeydown(e)}
 								/>
 								<button
