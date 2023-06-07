@@ -9,7 +9,7 @@
 			<hr />
 		</header>
 		<div class=" w-[36rem] object-cover m-auto">
-			<img src="/document_images/env-necessaries_preparation.png" alt="care-basic-knowledge" />
+			<img src="/document_images/env-necessaries_preparation.jpg" alt="care-basic-knowledge" />
 		</div>
 
 		<div class=" space-y-10">
