@@ -19,6 +19,9 @@
 	import { Modal, modalStore } from '@skeletonlabs/skeleton';
 	import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
 	import { FirebaseApp, User } from 'sveltefire';
+	import { setModeUserPrefers, setModeCurrent } from '@skeletonlabs/skeleton';
+
+	setModeUserPrefers(true);
 </script>
 
 <Modal />

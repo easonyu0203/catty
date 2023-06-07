@@ -10,6 +10,10 @@
 
 	onMount(() => {
 		const tl = gsap.timeline();
+		tl.to('#frontground', {
+			duration: 1,
+			height: 0
+		});
 		intro_speechs.forEach((speech, index) => {
 			tl.from(`#${speech.id}`, {
 				duration: 1,
@@ -28,6 +32,8 @@
 		});
 	});
 </script>
+
+<div id="frontground" class=" w-screen h-screen z-[999]" />
 
 <div
 	id="section0"
