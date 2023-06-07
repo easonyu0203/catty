@@ -49,47 +49,61 @@
 	$: is_user_up_thumbs = $user_thumbs?.filter((thumb) => thumb.isUp).length > 0;
 	$: is_user_down_thumbs = $user_thumbs?.filter((thumb) => !thumb.isUp).length > 0;
 
+	let toggleExecuting = false;
 	const toggleUp = async () => {
-		if (is_user_up_thumbs) {
-			// remove thumb
-			const thumb = $user_thumbs?.filter((thumb) => thumb.isUp)[0];
-			await deleteDoc(doc(db, 'thumbs', thumb.id));
-		} else {
-			// add thumb
-			const thumb: IThumb = {
-				uid: $user?.uid,
-				postId: id,
-				isUp: true
-			};
-			await addDoc(collection(db, 'thumbs'), thumb);
-		}
+		toggleExecuting = true;
 
-		if (is_user_down_thumbs) {
-			// remove thumb
-			const thumb = $user_thumbs?.filter((thumb) => !thumb.isUp)[0];
-			await deleteDoc(doc(db, 'thumbs', thumb.id));
+		try {
+			if (is_user_up_thumbs) {
+				// remove thumb
+				const thumb = $user_thumbs?.filter((thumb) => thumb.isUp)[0];
+				await deleteDoc(doc(db, 'thumbs', thumb.id));
+			} else {
+				// add thumb
+				const thumb: IThumb = {
+					uid: $user?.uid,
+					postId: id,
+					isUp: true
+				};
+				await addDoc(collection(db, 'thumbs'), thumb);
+			}
+
+			if (is_user_down_thumbs) {
+				// remove thumb
+				const thumb = $user_thumbs?.filter((thumb) => !thumb.isUp)[0];
+				await deleteDoc(doc(db, 'thumbs', thumb.id));
+			}
+		} catch (error) {
+		} finally {
+			toggleExecuting = false;
 		}
 	};
 
 	const toggleDown = async () => {
-		if (is_user_down_thumbs) {
-			// remove thumb
-			const thumb = $user_thumbs?.filter((thumb) => !thumb.isUp)[0];
-			await deleteDoc(doc(db, 'thumbs', thumb.id));
-		} else {
-			// add thumb
-			const thumb: IThumb = {
-				uid: $user?.uid,
-				postId: id,
-				isUp: false
-			};
-			await addDoc(collection(db, 'thumbs'), thumb);
-		}
+		toggleExecuting = true;
+		try {
+			if (is_user_down_thumbs) {
+				// remove thumb
+				const thumb = $user_thumbs?.filter((thumb) => !thumb.isUp)[0];
+				await deleteDoc(doc(db, 'thumbs', thumb.id));
+			} else {
+				// add thumb
+				const thumb: IThumb = {
+					uid: $user?.uid,
+					postId: id,
+					isUp: false
+				};
+				await addDoc(collection(db, 'thumbs'), thumb);
+			}
 
-		if (is_user_up_thumbs) {
-			// remove thumb
-			const thumb = $user_thumbs?.filter((thumb) => thumb.isUp)[0];
-			await deleteDoc(doc(db, 'thumbs', thumb.id));
+			if (is_user_up_thumbs) {
+				// remove thumb
+				const thumb = $user_thumbs?.filter((thumb) => thumb.isUp)[0];
+				await deleteDoc(doc(db, 'thumbs', thumb.id));
+			}
+		} catch (error) {
+		} finally {
+			toggleExecuting = false;
 		}
 	};
 
@@ -152,6 +166,7 @@
 			<div class="p-4 space-x-4 flex">
 				<div class={`text-center flex items-center rounded-lg space-x-2`}>
 					<button
+						disabled={toggleExecuting}
 						on:click={() => toggleUp()}
 						class={`btn-icon relative bottom-[1px] ${
 							is_user_up_thumbs ? 'variant-filled-success' : 'hover:variant-filled-success'
@@ -163,6 +178,7 @@
 				</div>
 				<div class={` text-center flex items-center rounded-lg px-2  space-x-2`}>
 					<button
+						disabled={toggleExecuting}
 						on:click={() => toggleDown()}
 						class={`btn-icon relative top-[1px] ${
 							is_user_down_thumbs ? 'variant-filled-warning' : 'hover:variant-filled-warning'

@@ -49,7 +49,7 @@
 				<button
 					on:click={() => modalComponentForm()}
 					type="button"
-					class=" w-[28rem] btn variant-filled-primary">分享你的事</button
+					class=" w-[28rem] btn variant-filled-primary">分享你的故事</button
 				>
 			</div>
 			<div class="flex flex-grow flex-col space-y-2 w-[38rem] m-auto p-8">
