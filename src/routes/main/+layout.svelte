@@ -40,7 +40,13 @@
 					<span>AI 幫手</span>
 				</div>
 			</AppRailAnchor>
-			<AppRailAnchor href="/" bind:group={currentTile} name="tile-3" value={2}>
+			<AppRailAnchor
+				href="/main/forum"
+				selected={$page.url.pathname === '/main/forum'}
+				bind:group={currentTile}
+				name="tile-3"
+				value={2}
+			>
 				<svelte:fragment slot="lead">
 					<i class="fa-regular fa-comments fa-2xl" />
 				</svelte:fragment>

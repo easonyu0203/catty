@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { collection, query, where, doc, setDoc } from 'firebase/firestore';
 import { getAnalytics } from 'firebase/analytics';
 
 // Your web app's Firebase configuration
@@ -27,6 +28,16 @@ export const handleSignInWithGoogle = async () => {
 		const result = await signInWithPopup(auth, provider);
 		// Handle successful sign-in here
 		console.log('Signed in with Google:', result.user);
+
+		// update profile
+		const { displayName, email, photoURL } = result.user;
+		const docRef = doc(db, 'profiles', result.user.uid);
+		await setDoc(docRef, {
+			displayName,
+			email,
+			photoURL,
+			uid: result.user.uid
+		});
 	} catch (error) {
 		// Handle sign-in error here
 		console.error('Error signing in with Google:', error);

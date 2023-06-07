@@ -16,15 +16,18 @@
 	} from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
 	import { db, auth, handleSignInWithGoogle, handleSignOut } from '$lib/firebase';
+	import { Modal, modalStore } from '@skeletonlabs/skeleton';
+	import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
 	import { FirebaseApp, User } from 'sveltefire';
 </script>
 
+<Modal />
 <FirebaseApp {auth} firestore={db}>
 	<AppShell>
 		<svelte:fragment slot="header">
 			<AppBar border="border-b-2 border-primary-300">
 				<svelte:fragment slot="lead">
-					<strong class="text-xl uppercase">浪我遇見貓</strong>
+					<strong class="text-xl uppercase"><a href="/">浪我遇見貓</a></strong>
 				</svelte:fragment>
 				<svelte:fragment slot="trail">
 					<LightSwitch />

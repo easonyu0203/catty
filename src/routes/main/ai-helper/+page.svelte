@@ -126,7 +126,7 @@
 
 <FirebaseApp {auth} firestore={db}>
 	<User let:user>
-		<div class="container flex flex-col justify-center items-center space-y-10 h-full m-auto">
+		<div class="container flex flex-col justify-center items-center space-y-20 h-full m-auto">
 			<h1 class="h1">問問我們的小幫手關於流浪貓的問題吧!</h1>
 			<section class="card w-[72rem]">
 				<div class="chat w-full h-full">
