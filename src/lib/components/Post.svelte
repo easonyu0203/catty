@@ -14,7 +14,7 @@
 	import { onMount } from 'svelte';
 	import Post from '$lib/components/Post.svelte';
 	import type { IProfile } from '$lib/types/Profile';
-	import { docStore, collectionStore } from 'sveltefire';
+	import { docStore, collectionStore, userStore } from 'sveltefire';
 	import type { IThumb } from '$lib/types/IPost';
 
 	export let id: string = '';
@@ -24,12 +24,14 @@
 	export let createDate: string = new Date().toLocaleDateString();
 	export let authUid: string = '';
 
+	const user = userStore(auth);
+
 	let thumb_up_count = 0;
 	let thumb_down_count = 0;
 
 	const user_thumbs = collectionStore<IThumb>(
 		db,
-		query(collection(db, 'thumbs'), where('uid', '==', authUid), where('postId', '==', id))
+		query(collection(db, 'thumbs'), where('uid', '==', $user?.uid), where('postId', '==', id))
 	);
 	const thumb_ups = collectionStore<IThumb>(
 		db,
@@ -39,6 +41,8 @@
 		db,
 		query(collection(db, 'thumbs'), where('postId', '==', id), where('isUp', '==', false))
 	);
+
+	$: console.log($user_thumbs);
 
 	$: thumb_up_count = $thumb_ups?.length;
 	$: thumb_down_count = $thumb_downs?.length;
@@ -53,7 +57,7 @@
 		} else {
 			// add thumb
 			const thumb: IThumb = {
-				uid: authUid,
+				uid: $user?.uid,
 				postId: id,
 				isUp: true
 			};
@@ -75,7 +79,7 @@
 		} else {
 			// add thumb
 			const thumb: IThumb = {
-				uid: authUid,
+				uid: $user?.uid,
 				postId: id,
 				isUp: false
 			};
