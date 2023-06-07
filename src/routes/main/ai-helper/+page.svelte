@@ -30,8 +30,7 @@
 	let openaiMessages: OpenAIChatMessage[] = [
 		{
 			role: 'system',
-			content:
-				'你是為親切幽默的台灣的流浪貓研究專家，民眾有關於流浪貓的問題想要問你，回答字數限制在兩句話以內',
+			content: '你是台灣的流浪貓研究專家，我有關於流浪貓的問題，請用一句話回答',
 			timestamp: `Today @ ${getCurrentTimestamp()}`
 		},
 		{
@@ -116,10 +115,10 @@
 	}
 
 	function onPromptKeydown(event: KeyboardEvent): void {
-		// if (['Enter'].includes(event.code)) {
-		// 	event.preventDefault();
-		// 	handleChatAsync();
-		// }
+		if (event.code === 'Enter' && (event.metaKey || event.ctrlKey)) {
+			event.preventDefault();
+			handleChatAsync();
+		}
 	}
 
 	// When DOM mounted, scroll to bottom
