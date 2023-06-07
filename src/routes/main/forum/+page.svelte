@@ -3,7 +3,7 @@
 	import { collection, addDoc, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 	import { db, auth } from '$lib/firebase';
 	import { onMount } from 'svelte';
-	import { FirebaseApp, Collection, userStore } from 'sveltefire';
+	import { FirebaseApp, Collection, userStore, User } from 'sveltefire';
 	import Post from '$lib/components/Post.svelte';
 	import { modalStore } from '@skeletonlabs/skeleton';
 	import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
@@ -20,7 +20,7 @@
 			title: '分享你的故事',
 			body: '寫下你的心路歷程，幫助彼此',
 			response: (formData: IPostFormData) => {
-				console.log(formData);
+				if (!formData) return;
 				handleSubmitPost(formData);
 			}
 		};
@@ -43,26 +43,35 @@
 </script>
 
 <FirebaseApp {auth} firestore={db}>
-	<div class="flex flex-col items-center justify-center pt-10 container h-full">
-		<div>
-			<button
-				on:click={() => modalComponentForm()}
-				type="button"
-				class=" w-[28rem] btn variant-filled-primary">分享你的事</button
-			>
+	<User let:user>
+		<div class="flex flex-col items-center max-h-full overflow-auto justify-center pt-10">
+			<div>
+				<button
+					on:click={() => modalComponentForm()}
+					type="button"
+					class=" w-[28rem] btn variant-filled-primary">分享你的事</button
+				>
+			</div>
+			<div class="flex flex-grow flex-col space-y-2 w-[38rem] m-auto p-8">
+				<Collection ref={'posts'} let:data={posts}>
+					{#each posts as post}
+						<Post
+							authUid={post.authorUid}
+							title={post.title}
+							subtitle={post.subtitle}
+							content={post.content}
+							createDate={post.createDate}
+						/>
+					{/each}
+				</Collection>
+			</div>
 		</div>
-		<div class="flex flex-grow flex-col space-y-2 w-[38rem] m-auto p-8">
-			<Collection ref={'posts'} let:data={posts}>
-				{#each posts as post}
-					<Post
-						authUid={post.authorUid}
-						title={post.title}
-						subtitle={post.subtitle}
-						content={post.content}
-						createDate={post.createDate}
-					/>
-				{/each}
-			</Collection>
+		<div
+			slot="signedOut"
+			class="container h-full m-auto flex flex-col space-y-10 items-center justify-center"
+		>
+			<h1 class="h1">要登入才能使用我們貼文分享喔</h1>
+			<h4 class="h4">請點選右上角登入按鈕</h4>
 		</div>
-	</div>
+	</User>
 </FirebaseApp>

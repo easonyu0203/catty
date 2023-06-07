@@ -78,8 +78,12 @@
 
 		// Send message to OpenAI
 		const msgs = openaiMessages.map((m) => {
-			return { role: m.role, content: m.content };
+			return { role: m.role.toString(), content: m.content.toString() };
 		});
+		// if msgs > 10, we only send index 0 and last 4
+		if (msgs.length > 8) {
+			msgs.splice(1, msgs.length - 5);
+		}
 		const res = await fetch('/main/ai-helper', {
 			method: 'POST',
 			body: JSON.stringify(msgs)

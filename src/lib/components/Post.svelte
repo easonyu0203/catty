@@ -59,11 +59,28 @@
 			</article>
 		</div>
 		<hr class="opacity-50" />
-		<footer class="p-4 flex justify-start items-center space-x-4">
-			<Avatar src={authorProfile.photoURL} width="w-7" />
-			<div class="flex-auto flex justify-between items-center">
-				<p class=" font-semibold">By {authorProfile.displayName}</p>
-				<small>On {createDate}</small>
+		<footer class="flex justify-between items-center">
+			<div class="p-4 flex justify-around items-center space-x-4">
+				<Avatar src={authorProfile.photoURL} width="w-7" />
+				<div class="flex-auto flex flex-col justify-center items-start">
+					<div class=" font-semibold">By {authorProfile.displayName}</div>
+					<small class=" text-xs">On {createDate}</small>
+				</div>
+			</div>
+
+			<div class="p-4 space-x-4 flex">
+				<div class=" text-center flex items-center rounded-lg px-2">
+					<button class="btn-icon relative bottom-[1px] hover:variant-filled-success">
+						<i class="fa-regular fa-thumbs-up fa-xl" />
+					</button>
+					<small>2,000</small>
+				</div>
+				<div class=" text-center flex items-center rounded-lg px-2">
+					<button class="btn-icon relative top-[1px] hover:variant-filled-warning">
+						<i class=" fa-regular fa-thumbs-down fa-xl" />
+					</button>
+					<small>2,000</small>
+				</div>
 			</div>
 		</footer>
 	</div>
