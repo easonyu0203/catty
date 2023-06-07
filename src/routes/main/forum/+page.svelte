@@ -19,7 +19,10 @@
 			component: c,
 			title: '分享你的故事',
 			body: '寫下你的心路歷程，幫助彼此',
-			response: (formData: IPostFormData) => handleSubmitPost(formData)
+			response: (formData: IPostFormData) => {
+				console.log(formData);
+				handleSubmitPost(formData);
+			}
 		};
 		modalStore.trigger(modal);
 	}

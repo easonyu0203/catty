@@ -22,7 +22,7 @@
 				<svelte:fragment slot="lead">
 					<i class="fa-solid fa-book fa-2xl" />
 				</svelte:fragment>
-				<div class="pt-1">
+				<div class="pt-1 relative top-4">
 					<span>知識庫</span>
 				</div>
 			</AppRailAnchor>
@@ -36,7 +36,7 @@
 				<svelte:fragment slot="lead">
 					<i class="fa-solid fa-users fa-2xl" />
 				</svelte:fragment>
-				<div class="pt-1">
+				<div class="pt-1 relative top-4">
 					<span>AI 幫手</span>
 				</div>
 			</AppRailAnchor>
@@ -50,7 +50,7 @@
 				<svelte:fragment slot="lead">
 					<i class="fa-regular fa-comments fa-2xl" />
 				</svelte:fragment>
-				<div class="pt-1">
+				<div class="pt-1 relative top-4">
 					<span>論壇</span>
 				</div>
 			</AppRailAnchor>

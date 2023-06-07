@@ -188,7 +188,7 @@
 								<div class="input-group-shim">+</div>
 								<textarea
 									bind:value={currentMessage}
-									class="bg-transparent border-0 ring-0 outline-none px-2 h-12"
+									class="bg-transparent border-0 ring-0 outline-none p-2 h-12"
 									name="prompt"
 									id="prompt"
 									placeholder="Write a message..."
