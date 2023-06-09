@@ -20,11 +20,33 @@
 	import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
 	import { FirebaseApp, User } from 'sveltefire';
 	import { setModeUserPrefers, setModeCurrent } from '@skeletonlabs/skeleton';
+	import { Toast, toastStore } from '@skeletonlabs/skeleton';
+	import type { ToastSettings } from '@skeletonlabs/skeleton';
+	import { onMount } from 'svelte';
+
+	const loginToast: ToastSettings = {
+		message: 'Login successfully!',
+		background: 'variant-filled-success'
+	};
+	const loginFailedToast: ToastSettings = {
+		message: 'Login Error!',
+		background: 'variant-filled-error'
+	};
+	const logoutToast: ToastSettings = {
+		message: 'Logout successfully!',
+		background: 'variant-filled-success'
+	};
+	const logoutFailToast: ToastSettings = {
+		message: 'Logout Error!',
+		background: 'variant-filled-error'
+	};
 
 	setModeUserPrefers(true);
 </script>
 
 <Modal />
+<Toast />
+
 <FirebaseApp {auth} firestore={db}>
 	<AppShell>
 		<svelte:fragment slot="header">
@@ -54,7 +76,21 @@
 					</div>
 					<div class=" flex space-x-3 pl-2">
 						<User let:user>
-							<button on:click={() => handleSignOut()} class="btn btn-sm variant-ghost-surface">
+							<button
+								on:click={() => {
+									try {
+										handleSignOut();
+									} catch (error) {
+									} finally {
+										if (user) {
+											toastStore.trigger(logoutFailToast);
+										} else {
+											toastStore.trigger(logoutToast);
+										}
+									}
+								}}
+								class="btn btn-sm variant-ghost-surface"
+							>
 								登出
 							</button>
 							<Avatar
@@ -64,7 +100,13 @@
 							/>
 							<div slot="signedOut">
 								<button
-									on:click={() => handleSignInWithGoogle()}
+									on:click={async () => {
+										try {
+											await handleSignInWithGoogle();
+										} catch (error) {
+										} finally {
+										}
+									}}
 									class="btn btn-sm variant-ghost-surface"
 								>
 									登入
